@@ -6,6 +6,11 @@ on:
     branches: 
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs: 
   deploy:
     runs-on: ubuntu-latest
@@ -22,7 +27,6 @@ jobs:
       - name: upload artifacts
         uses: actions/upload-pages-artifact@v4
         with:
-          id-token: write
           path: ./templates/
 
       - name: deploy pages
